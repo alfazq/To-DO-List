@@ -40,5 +40,15 @@ function saveData(){
 }
 function show(){
     listitem.innerHTML=localStorage.getItem('data')
+    listitem.querySelectorAll('li').forEach(li => {
+        const radio = li.querySelector("input[type='radio']");
+        if (radio) {
+            if (li.classList.contains('checked')) {
+                radio.setAttribute('checked','');
+            } else {
+                radio.removeAttribute('checked');
+            }
+        }
+    });
 }
 show();
